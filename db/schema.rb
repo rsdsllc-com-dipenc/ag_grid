@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_02_014505) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_02_021356) do
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -20,4 +20,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_02_014505) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "address"
+    t.integer "client_id", null: false
+    t.string "appraisal_type"
+    t.boolean "is_fha_loan"
+    t.string "primary_appraiser"
+    t.string "secondary_appraiser"
+    t.datetime "inspection_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_orders_on_client_id"
+  end
+
+  add_foreign_key "orders", "clients"
 end
