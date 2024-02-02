@@ -2,9 +2,9 @@
 
 5.times do
   Client.create!(
-    name: Faker::Name.name,
+    name: Faker::Company.name,
     address: Faker::Address.full_address,
-    contact: Faker::PhoneNumber.phone_number,
+    contact: Faker::Name.name,
     email: Faker::Internet.email
   )
 end
