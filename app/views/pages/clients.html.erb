@@ -1,2 +1,17 @@
-<h1>Pages#client</h1>
-<p>Find me in app/views/pages/client.html.erb</p>
+<% clients_json_data = render(template: "pages/clients", formats: [:json]) %>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h1>Clients</h1>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <div class="table-container" data-controller="table-grid clients" data-action="clients:customEvent->table-grid#customFunction">
+        <button class="btn btn-primary" data-action="click->table-grid#resetState">Reset</button>
+        <div id="grid" class="ag-theme-quartz" data-json-data="<%= clients_json_data %>"></div>
+      </div>
+    </div>
+  </div>
+</div>

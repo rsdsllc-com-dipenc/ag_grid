@@ -4,5 +4,14 @@
 
 import { application } from "./application"
 
+import ClientsController from "./clients_controller"
+application.register("clients", ClientsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import OrdersController from "./orders_controller"
+application.register("orders", OrdersController)
+
+import TableGridController from "./table_grid_controller"
+application.register("table-grid", TableGridController)

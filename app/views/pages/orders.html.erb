@@ -1,2 +1,17 @@
-<h1>Pages#order</h1>
-<p>Find me in app/views/pages/order.html.erb</p>
+<% orders_json_data = render(template: "pages/orders", formats: [:json]) %>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h1>Orders</h1>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <div class="table-container" data-controller="table-grid orders" data-action="orders:customEvent->table-grid#customFunction">
+        <button class="btn btn-primary" data-action="click->table-grid#resetState">Reset</button>
+        <div id="grid" class="ag-theme-quartz" data-json-data="<%= orders_json_data %>"></div>
+      </div>
+    </div>
+  </div>
+</div>
